@@ -1,19 +1,180 @@
----
-layout: main
----
-{% for post in paginator.posts %}
-<article class="post">
-  {% if post.img %}
-    <a class="post-thumbnail" style="background-image: url({{"/assets/img/" | prepend: site.baseurl | append : post.img}})" href="{{post.url | prepend: site.baseurl}}"></a>
-  {% else %}
-  {% endif %}
-  <div class="post-content">
-    <h2 class="post-title"><a href="{{post.url | prepend: site.baseurl}}">{{post.title}}</a></h2>
-    <p>{{ post.content | strip_html | truncatewords: 15 }}</p>
-    <span class="post-date">{{post.date | date: '%Y, %b %d'}}&nbsp;&nbsp;&nbsp;—&nbsp;</span>
-    <span class="post-words">{% capture words %}{{ post.content | number_of_words }}{% endcapture %}{% unless words contains "-" %}{{ words | plus: 250 | divided_by: 250 | append: " minute read" }}{% endunless %}</span>
-  </div>
-</article>
-{% endfor %}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ersen Elmaogullari</title>
+<meta name="description" content="International business developer and technology entrepreneur working across AI, cybersecurity, defense and emerging technologies. Based in Abu Dhabi.">
+<style>
+  :root {
+    --bg: #fbfaf8;
+    --fg: #1d1d1f;
+    --muted: #5f6368;
+    --line: #e4e1db;
+    --accent: #1f5f8b;
+    --chip: #eef3f7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #141516;
+      --fg: #ececec;
+      --muted: #9aa0a6;
+      --line: #2c2e30;
+      --accent: #7db7e0;
+      --chip: #1f2429;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  main { max-width: 760px; margin: 0 auto; padding: 56px 20px 80px; }
+  h1 { font-size: 2.2rem; line-height: 1.15; margin: 0 0 6px; letter-spacing: -0.02em; }
+  .headline { font-size: 1.1rem; color: var(--muted); margin: 0 0 4px; }
+  .location { color: var(--muted); margin: 0 0 18px; font-size: 0.95rem; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .links { display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 0.95rem; }
+  section { margin-top: 44px; }
+  h2 {
+    font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.12em;
+    color: var(--muted); border-bottom: 1px solid var(--line);
+    padding-bottom: 8px; margin: 0 0 18px; font-weight: 600;
+  }
+  .job { margin-bottom: 26px; }
+  .job-head { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .job h3 { font-size: 1.05rem; margin: 0; }
+  .dates { color: var(--muted); font-size: 0.9rem; white-space: nowrap; }
+  .org { color: var(--muted); font-size: 0.95rem; margin: 0 0 6px; }
+  ul { margin: 6px 0 0; padding-left: 20px; }
+  li { margin-bottom: 4px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; list-style: none; margin: 0; }
+  .chips li { background: var(--chip); border-radius: 999px; padding: 3px 12px; font-size: 0.88rem; margin: 0; }
+  .skill-group { margin-bottom: 14px; }
+  .skill-group h3 { font-size: 0.9rem; margin: 0 0 6px; color: var(--muted); font-weight: 600; }
+  footer { margin-top: 60px; color: var(--muted); font-size: 0.85rem; }
+  @media (max-width: 520px) {
+    main { padding-top: 36px; }
+    h1 { font-size: 1.8rem; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Ersen Elmaogullari</h1>
+    <p class="headline">International Business Developer &amp; Technology Entrepreneur<br>AI, Cybersecurity, Defense &amp; Emerging Technologies</p>
+    <p class="location">Abu Dhabi, United Arab Emirates</p>
+    <div class="links">
+      <a href="https://www.linkedin.com/in/elmaogullari/">LinkedIn</a>
+      <a href="https://github.com/elmaogullari">GitHub</a>
+      <a href="https://elmaogullari.net">elmaogullari.net</a>
+      <a href="mailto:elmaogullari@gmail.com">elmaogullari@gmail.com</a>
+    </div>
+  </header>
 
-{% include pagination.html %}
+  <section>
+    <h2>Summary</h2>
+    <p>
+      Solution-oriented problem solver with more than 25 years in information technology,
+      including more than ten years in executive roles. Experience spans enterprise consulting,
+      management and sales, with a focus on bringing open source and big data solutions into
+      existing infrastructures, mainly in telecommunications, defense and government.
+      Today I build strategic partnerships and help bring AI, cybersecurity and other emerging
+      technologies to new markets.
+    </p>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+
+    <div class="job">
+      <div class="job-head"><h3>Chief Technology Officer</h3><span class="dates">2023 – 2025</span></div>
+      <p class="org">Technology company, Abu Dhabi</p>
+    </div>
+
+    <div class="job">
+      <div class="job-head"><h3>Senior Technical Consultant &amp; Lead Technology Advisor to the Chairman</h3><span class="dates">2014 – 2021</span></div>
+      <p class="org">National ICT regulator, Ankara</p>
+      <ul>
+        <li>Led the institution's digital transformation and rebuilt many outdated services.</li>
+        <li>Replaced third-party applications with in-house ones, and consolidated services and physical servers with virtualization and containers.</li>
+        <li>Built and maintained Hadoop environments of nearly a hundred nodes.</li>
+        <li>Designed central monitoring and log management (Nagios, SIEM, Elastic Stack, Prometheus, Grafana).</li>
+        <li>Coordinated the physical move of more than a thousand servers between datacenters.</li>
+        <li>Mentored younger colleagues. The programs saved millions of dollars while improving service quality.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head"><h3>Lead System Engineer</h3><span class="dates">2013 – 2014</span></div>
+      <p class="org">Global virtualization and cloud software vendor</p>
+      <ul>
+        <li>Supported sales as a consultant in the systems engineering team: proofs of concept, demos and tailored solution designs.</li>
+        <li>Managed relationships with customers, partners and distributors.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head"><h3>Senior Technology Consultant</h3><span class="dates">2011 – 2013</span></div>
+      <p class="org">Global data protection and storage software vendor</p>
+      <ul>
+        <li>Advised on data protection, backup, storage virtualization, high availability, big data, business continuity and disaster recovery.</li>
+        <li>Trained partner and distributor pre-sales teams in Turkey, Russia and Greece.</li>
+        <li>Received a Technical Excellence Award in 2013.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head"><h3>Senior System Support Engineer</h3><span class="dates">2005 – 2011</span></div>
+      <p class="org">Nationwide systems integrator, Istanbul</p>
+      <ul>
+        <li>Delivered IT infrastructure projects for telecommunications and finance customers.</li>
+        <li>Deployed a nation-wide e-mail system on Sparc/RISC hardware, Solaris and high-availability clustering.</li>
+        <li>Contributed to a national number portability project.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head"><h3>System Analyst</h3><span class="dates">2002 – 2004</span></div>
+      <p class="org">Retail bank, Istanbul</p>
+      <ul>
+        <li>Administered Windows domains and messaging infrastructure and led migrations to newer server platforms.</li>
+        <li>Provided engineering support to development teams.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <div class="job">
+      <div class="job-head"><h3>BA, Philosophy</h3><span class="dates">2022</span></div>
+      <p class="org">Anadolu University, Turkey</p>
+    </div>
+    <div class="job">
+      <div class="job-head"><h3>MSc, Information Technology Law</h3><span class="dates">2016</span></div>
+      <p class="org">Hacettepe University, Turkey</p>
+    </div>
+    <div class="job">
+      <div class="job-head"><h3>BSc, Computer Engineering</h3><span class="dates">2001</span></div>
+      <p class="org">Dokuz Eylul University, Turkey</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <div class="skill-group"><h3>Business</h3>
+      <ul class="chips"><li>Strategic partnerships</li><li>International business development</li><li>Executive leadership</li><li>Pre-sales consulting</li></ul></div>
+    <div class="skill-group"><h3>Technology</h3>
+      <ul class="chips"><li>AI</li><li>Cybersecurity</li><li>Linux</li><li>FreeBSD</li><li>Solaris</li><li>KVM</li><li>Xen</li><li>VDI</li><li>ZFS</li><li>Ceph</li><li>GlusterFS</li><li>Hadoop</li><li>Elastic Stack</li><li>Docker</li><li>Kubernetes</li><li>OpenStack</li></ul></div>
+    <div class="skill-group"><h3>Telecommunications</h3>
+      <ul class="chips"><li>Modern IP protocols</li><li>Internet traffic classification</li><li>LTE and RF networks</li></ul></div>
+  </section>
+
+  <footer>&copy; Ersen Elmaogullari</footer>
+</main>
+</body>
+</html>
